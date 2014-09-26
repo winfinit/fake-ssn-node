@@ -1,5 +1,5 @@
 {
-  "name": "SSN",
+  "name": "ssn",
   "version": "0.0.1",
   "description": "Validate and generate fake SSN",
   "main": "index.js",
@@ -11,7 +11,7 @@
     "url": "https://github.com/winfinit/fake-ssn-node.git"
   },
   "keywords": [
-    "SSN",
+    "ssn",
     "validate",
     "SSN",
     "fake",

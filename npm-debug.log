@@ -1,0 +1,125 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.4.3
+3 info using node@v0.10.26
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /Users/winfinit/.npm/3a52ce78-.lock
+10 verbose tar pack [ '/Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/tmp.tgz',
+10 verbose tar pack   '.' ]
+11 verbose tarball /Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/tmp.tgz
+12 verbose folder .
+13 info prepublish SSN@0.0.1
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. /Users/winfinit/.npm/1f1177db-tar.lock
+16 silly lockFile e30df203-09148-0-8336687230039388-tmp-tgz tar:///Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/tmp.tgz
+17 verbose lock tar:///Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/tmp.tgz /Users/winfinit/.npm/e30df203-09148-0-8336687230039388-tmp-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile e30df203-09148-0-8336687230039388-tmp-tgz tar:///Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/tmp.tgz
+21 silly lockFile e30df203-09148-0-8336687230039388-tmp-tgz tar:///Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/tmp.tgz
+22 verbose tar unpack /Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/tmp.tgz
+23 silly lockFile bd687bdf-09148-0-8336687230039388-package tar:///Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/package
+24 verbose lock tar:///Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/package /Users/winfinit/.npm/bd687bdf-09148-0-8336687230039388-package.lock
+25 silly lockFile e30df203-09148-0-8336687230039388-tmp-tgz tar:///Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/tmp.tgz
+26 verbose lock tar:///Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/tmp.tgz /Users/winfinit/.npm/e30df203-09148-0-8336687230039388-tmp-tgz.lock
+27 silly gunzTarPerm modes [ '755', '644' ]
+28 silly gunzTarPerm extractEntry package.json
+29 silly gunzTarPerm extractEntry README.md
+30 silly gunzTarPerm extractEntry index.js
+31 silly lockFile bd687bdf-09148-0-8336687230039388-package tar:///Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/package
+32 silly lockFile bd687bdf-09148-0-8336687230039388-package tar:///Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/package
+33 silly lockFile e30df203-09148-0-8336687230039388-tmp-tgz tar:///Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/tmp.tgz
+34 silly lockFile e30df203-09148-0-8336687230039388-tmp-tgz tar:///Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/tmp.tgz
+35 verbose tar pack [ '/Users/winfinit/.npm/SSN/0.0.1/package.tgz',
+35 verbose tar pack   '/Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/package' ]
+36 verbose tarball /Users/winfinit/.npm/SSN/0.0.1/package.tgz
+37 verbose folder /Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/package
+38 silly lockFile bd687bdf-09148-0-8336687230039388-package tar:///Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/package
+39 verbose lock tar:///Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/package /Users/winfinit/.npm/bd687bdf-09148-0-8336687230039388-package.lock
+40 silly lockFile 363d8fb9-nfinit-npm-SSN-0-0-1-package-tgz tar:///Users/winfinit/.npm/SSN/0.0.1/package.tgz
+41 verbose lock tar:///Users/winfinit/.npm/SSN/0.0.1/package.tgz /Users/winfinit/.npm/363d8fb9-nfinit-npm-SSN-0-0-1-package-tgz.lock
+42 silly lockFile bd687bdf-09148-0-8336687230039388-package tar:///Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/package
+43 silly lockFile bd687bdf-09148-0-8336687230039388-package tar:///Users/winfinit/tmp/npm-84241--grTgg5X/1411703609148-0.8336687230039388/package
+44 silly lockFile 363d8fb9-nfinit-npm-SSN-0-0-1-package-tgz tar:///Users/winfinit/.npm/SSN/0.0.1/package.tgz
+45 silly lockFile 363d8fb9-nfinit-npm-SSN-0-0-1-package-tgz tar:///Users/winfinit/.npm/SSN/0.0.1/package.tgz
+46 silly lockFile 6a0367b0-s-winfinit-npm-SSN-0-0-1-package /Users/winfinit/.npm/SSN/0.0.1/package
+47 verbose lock /Users/winfinit/.npm/SSN/0.0.1/package /Users/winfinit/.npm/6a0367b0-s-winfinit-npm-SSN-0-0-1-package.lock
+48 silly lockFile 6a0367b0-s-winfinit-npm-SSN-0-0-1-package /Users/winfinit/.npm/SSN/0.0.1/package
+49 silly lockFile 6a0367b0-s-winfinit-npm-SSN-0-0-1-package /Users/winfinit/.npm/SSN/0.0.1/package
+50 verbose tar unpack /Users/winfinit/.npm/SSN/0.0.1/package.tgz
+51 silly lockFile b66ae8e9-s-winfinit-npm-SSN-0-0-1-package tar:///Users/winfinit/.npm/SSN/0.0.1/package
+52 verbose lock tar:///Users/winfinit/.npm/SSN/0.0.1/package /Users/winfinit/.npm/b66ae8e9-s-winfinit-npm-SSN-0-0-1-package.lock
+53 silly lockFile 363d8fb9-nfinit-npm-SSN-0-0-1-package-tgz tar:///Users/winfinit/.npm/SSN/0.0.1/package.tgz
+54 verbose lock tar:///Users/winfinit/.npm/SSN/0.0.1/package.tgz /Users/winfinit/.npm/363d8fb9-nfinit-npm-SSN-0-0-1-package-tgz.lock
+55 silly gunzTarPerm modes [ '755', '644' ]
+56 silly gunzTarPerm extractEntry package.json
+57 silly gunzTarPerm extractEntry README.md
+58 silly gunzTarPerm extractEntry index.js
+59 silly lockFile b66ae8e9-s-winfinit-npm-SSN-0-0-1-package tar:///Users/winfinit/.npm/SSN/0.0.1/package
+60 silly lockFile b66ae8e9-s-winfinit-npm-SSN-0-0-1-package tar:///Users/winfinit/.npm/SSN/0.0.1/package
+61 silly lockFile 363d8fb9-nfinit-npm-SSN-0-0-1-package-tgz tar:///Users/winfinit/.npm/SSN/0.0.1/package.tgz
+62 silly lockFile 363d8fb9-nfinit-npm-SSN-0-0-1-package-tgz tar:///Users/winfinit/.npm/SSN/0.0.1/package.tgz
+63 verbose chmod /Users/winfinit/.npm/SSN/0.0.1/package.tgz 644
+64 verbose chown /Users/winfinit/.npm/SSN/0.0.1/package.tgz [ 501, 20 ]
+65 silly lockFile 3a52ce78- .
+66 silly lockFile 3a52ce78- .
+67 silly publish { name: 'SSN',
+67 silly publish   version: '0.0.1',
+67 silly publish   description: 'Validate and generate fake SSN',
+67 silly publish   main: 'index.js',
+67 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+67 silly publish   repository:
+67 silly publish    { type: 'git',
+67 silly publish      url: 'https://github.com/winfinit/fake-ssn-node.git' },
+67 silly publish   keywords: [ 'SSN', 'validate', 'SSN', 'fake', 'SSN' ],
+67 silly publish   author: { name: 'Roman Jurkov', email: 'winfinit@gmail.com' },
+67 silly publish   license: 'GNU General Public License',
+67 silly publish   bugs: { url: 'https://github.com/winfinit/fake-ssn-node/issues' },
+67 silly publish   dependencies: { 'sprintf-js': '>= 0.0.7' },
+67 silly publish   homepage: 'https://github.com/winfinit/fake-ssn-node',
+67 silly publish   readme: 'fake-ssn-node\n=============\n\nclone of fng-ssn-tools just in node.js\n\nThis program is free software; you can redistribute it and/or\nmodify it under the terms of the GNU General Public License\nas published by the Free Software Foundation; either version 2\nof the License, or (at your option) any later version.\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License\nalong with this program; if not, write to the Free Software\nFoundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.\n',
+67 silly publish   readmeFilename: 'README.md',
+67 silly publish   _id: 'SSN@0.0.1',
+67 silly publish   dist: { shasum: '71b9a8677b9a8b790ce9737b15ba17aeb6107695' },
+67 silly publish   _from: '.' }
+68 verbose url raw SSN
+69 verbose url resolving [ 'https://registry.npmjs.org/', './SSN' ]
+70 verbose url resolved https://registry.npmjs.org/SSN
+71 info trying registry request attempt 1 at 23:53:29
+72 http PUT https://registry.npmjs.org/SSN
+73 http 403 https://registry.npmjs.org/SSN
+74 error publish Failed PUT 403
+75 error Error: forbidden New packages must have all-lowercase names: SSN
+75 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:237:14)
+75 error     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:123:22)
+75 error     at Request.EventEmitter.emit (events.js:98:17)
+75 error     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:893:14)
+75 error     at Request.EventEmitter.emit (events.js:117:20)
+75 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:844:12)
+75 error     at IncomingMessage.EventEmitter.emit (events.js:117:20)
+75 error     at _stream_readable.js:920:16
+75 error     at process._tickCallback (node.js:415:13)
+76 error If you need help, you may report this *entire* log,
+76 error including the npm and node versions, at:
+76 error     <http://github.com/npm/npm/issues>
+77 error System Darwin 13.4.0
+78 error command "node" "/usr/local/bin/npm" "publish"
+79 error cwd /Users/winfinit/Documents/workspace/fake-ssn-node
+80 error node -v v0.10.26
+81 error npm -v 1.4.3
+82 verbose exit [ 1, true ]
