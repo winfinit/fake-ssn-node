@@ -1,6 +1,6 @@
 {
   "name": "ssn",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Validate and generate fake SSN",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "url": "https://github.com/winfinit/fake-ssn-node/issues"
   },
   "dependencies": {
-    "sprintf-js": ">= 0.0.7"
+    "sprintf": ">= 0.1.4"
   },
   "homepage": "https://github.com/winfinit/fake-ssn-node"
 }
