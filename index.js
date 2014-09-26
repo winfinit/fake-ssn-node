@@ -209,7 +209,7 @@ for (var index in highgroup) {
 }
 highgroup = cleangroup;
 
-exports.generate = function generate(state) {
+exports.generate = function (state) {
         state = state || states[Math.floor(Math.random() * (states.length - 1))];
         state = state.toUpperCase().trim();;
         if ( states.indexOf(state) === undefined ) {
@@ -226,3 +226,34 @@ exports.generate = function generate(state) {
         return ssn;
 }
 
+exports.validate = function (ssn) {
+    ssn = ssn.replace(/-/g,'');    
+
+    if( ssn.length !== 9 ) {
+        console.log('invalid length');
+        return false;
+    }  
+
+    if( isNaN(ssn) ) {
+        console.log('not a number');
+        return false;
+    }
+
+    var area_number = ssn.substr(0, 3);
+    var group_number = ssn.substr(3,2);
+    var last_four = ssn.substr(5);
+
+    area_number = Number(area_number);
+    group_number = Number(group_number);
+    last_four = Number(last_four);
+    for( var state in statePrefixes ) {
+        if ( statePrefixes[state].indexOf(area_number) !== -1 ) {
+           if ( possibleGroups.indexOf(highgroup[area_number]) >=  possibleGroups.indexOf(group_number) ) {
+                return state;
+           } else {
+                return false;
+           }
+        }
+    }
+    return false;
+}
