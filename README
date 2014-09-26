@@ -14,7 +14,7 @@ for testing your application.
 ## Usage
 
   // Generate SSN from random state
-  var ssn = require('scapegoat');
+  var ssn = require('ssn');
   console.log(ssn.generate());
 
   // Generate SSN from state of FL
@@ -46,6 +46,7 @@ If you find a bug or willing to add some enhancement, pull requests are very wel
 * 0.0.3 Bug fixes
 * 0.0.4 Added validation
 * 0.5.0 Added tests and documentation
+* 0.5.1 Corrected type in the doc
 
 ## Legal
 
