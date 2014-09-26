@@ -211,9 +211,9 @@ highgroup = cleangroup;
 
 exports.generate = function generate(state) {
         state = state || states[Math.floor(Math.random() * (states.length - 1))];
-        state = state.toUpperCase();
-        if (! states.indexOf(state)) {
-                throw "Invalid state";
+        state = state.toUpperCase().trim();;
+        if ( states.indexOf(state) === undefined ) {
+                throw "Invalid state " + state;
         }
 
         var statePrefix = statePrefixes[state];
