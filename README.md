@@ -1,7 +1,6 @@
 # fake-ssn-node
-=============
 
-This is a clone of fng-ssn-tools just in node.js
+This is a clone of [**fng-ssn-tools**](https://github.com/corbanworks/fng-ssn-tools) just in node.js
 
 A small library providing one an ability to validate a social security number, 
 find a state where SSN was issued, and generate a fake social security numbers
