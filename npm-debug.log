@@ -1,0 +1,132 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.4.3
+3 info using node@v0.10.26
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /Users/winfinit/.npm/3a52ce78-.lock
+10 verbose tar pack [ '/var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/tmp.tgz',
+10 verbose tar pack   '.' ]
+11 verbose tarball /var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/tmp.tgz
+12 verbose folder .
+13 info prepublish ssn@0.5.1
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. /Users/winfinit/.npm/1f1177db-tar.lock
+16 silly lockFile 382fd6c6-5145-0-19186543370597064-tmp-tgz tar:///var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/tmp.tgz
+17 verbose lock tar:///var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/tmp.tgz /Users/winfinit/.npm/382fd6c6-5145-0-19186543370597064-tmp-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 382fd6c6-5145-0-19186543370597064-tmp-tgz tar:///var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/tmp.tgz
+21 silly lockFile 382fd6c6-5145-0-19186543370597064-tmp-tgz tar:///var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/tmp.tgz
+22 verbose tar unpack /var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/tmp.tgz
+23 silly lockFile a0ce9381-5145-0-19186543370597064-package tar:///var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/package
+24 verbose lock tar:///var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/package /Users/winfinit/.npm/a0ce9381-5145-0-19186543370597064-package.lock
+25 silly lockFile 382fd6c6-5145-0-19186543370597064-tmp-tgz tar:///var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/tmp.tgz
+26 verbose lock tar:///var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/tmp.tgz /Users/winfinit/.npm/382fd6c6-5145-0-19186543370597064-tmp-tgz.lock
+27 silly gunzTarPerm modes [ '755', '644' ]
+28 silly gunzTarPerm extractEntry package.json
+29 silly gunzTarPerm extractEntry README.md
+30 silly gunzTarPerm extractEntry index.js
+31 silly gunzTarPerm extractEntry Makefile
+32 silly gunzTarPerm extractEntry test/index.js
+33 silly lockFile a0ce9381-5145-0-19186543370597064-package tar:///var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/package
+34 silly lockFile a0ce9381-5145-0-19186543370597064-package tar:///var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/package
+35 silly lockFile 382fd6c6-5145-0-19186543370597064-tmp-tgz tar:///var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/tmp.tgz
+36 silly lockFile 382fd6c6-5145-0-19186543370597064-tmp-tgz tar:///var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/tmp.tgz
+37 verbose tar pack [ '/Users/winfinit/.npm/ssn/0.5.1/package.tgz',
+37 verbose tar pack   '/var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/package' ]
+38 verbose tarball /Users/winfinit/.npm/ssn/0.5.1/package.tgz
+39 verbose folder /var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/package
+40 silly lockFile a0ce9381-5145-0-19186543370597064-package tar:///var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/package
+41 verbose lock tar:///var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/package /Users/winfinit/.npm/a0ce9381-5145-0-19186543370597064-package.lock
+42 silly lockFile 15df4469-nfinit-npm-ssn-0-5-1-package-tgz tar:///Users/winfinit/.npm/ssn/0.5.1/package.tgz
+43 verbose lock tar:///Users/winfinit/.npm/ssn/0.5.1/package.tgz /Users/winfinit/.npm/15df4469-nfinit-npm-ssn-0-5-1-package-tgz.lock
+44 silly lockFile a0ce9381-5145-0-19186543370597064-package tar:///var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/package
+45 silly lockFile a0ce9381-5145-0-19186543370597064-package tar:///var/folders/t5/5hrrqygs15jbgdtdx4x0201h0000gn/T/npm-14910-dBv9pV_Q/1411945765145-0.19186543370597064/package
+46 silly lockFile 15df4469-nfinit-npm-ssn-0-5-1-package-tgz tar:///Users/winfinit/.npm/ssn/0.5.1/package.tgz
+47 silly lockFile 15df4469-nfinit-npm-ssn-0-5-1-package-tgz tar:///Users/winfinit/.npm/ssn/0.5.1/package.tgz
+48 silly lockFile 5cd5bd71-s-winfinit-npm-ssn-0-5-1-package /Users/winfinit/.npm/ssn/0.5.1/package
+49 verbose lock /Users/winfinit/.npm/ssn/0.5.1/package /Users/winfinit/.npm/5cd5bd71-s-winfinit-npm-ssn-0-5-1-package.lock
+50 silly lockFile 5cd5bd71-s-winfinit-npm-ssn-0-5-1-package /Users/winfinit/.npm/ssn/0.5.1/package
+51 silly lockFile 5cd5bd71-s-winfinit-npm-ssn-0-5-1-package /Users/winfinit/.npm/ssn/0.5.1/package
+52 verbose tar unpack /Users/winfinit/.npm/ssn/0.5.1/package.tgz
+53 silly lockFile d73c6688-s-winfinit-npm-ssn-0-5-1-package tar:///Users/winfinit/.npm/ssn/0.5.1/package
+54 verbose lock tar:///Users/winfinit/.npm/ssn/0.5.1/package /Users/winfinit/.npm/d73c6688-s-winfinit-npm-ssn-0-5-1-package.lock
+55 silly lockFile 15df4469-nfinit-npm-ssn-0-5-1-package-tgz tar:///Users/winfinit/.npm/ssn/0.5.1/package.tgz
+56 verbose lock tar:///Users/winfinit/.npm/ssn/0.5.1/package.tgz /Users/winfinit/.npm/15df4469-nfinit-npm-ssn-0-5-1-package-tgz.lock
+57 silly gunzTarPerm modes [ '755', '644' ]
+58 silly gunzTarPerm extractEntry package.json
+59 silly gunzTarPerm extractEntry README.md
+60 silly gunzTarPerm extractEntry index.js
+61 silly gunzTarPerm extractEntry Makefile
+62 silly gunzTarPerm extractEntry test/index.js
+63 silly lockFile d73c6688-s-winfinit-npm-ssn-0-5-1-package tar:///Users/winfinit/.npm/ssn/0.5.1/package
+64 silly lockFile d73c6688-s-winfinit-npm-ssn-0-5-1-package tar:///Users/winfinit/.npm/ssn/0.5.1/package
+65 silly lockFile 15df4469-nfinit-npm-ssn-0-5-1-package-tgz tar:///Users/winfinit/.npm/ssn/0.5.1/package.tgz
+66 silly lockFile 15df4469-nfinit-npm-ssn-0-5-1-package-tgz tar:///Users/winfinit/.npm/ssn/0.5.1/package.tgz
+67 verbose chmod /Users/winfinit/.npm/ssn/0.5.1/package.tgz 644
+68 verbose chown /Users/winfinit/.npm/ssn/0.5.1/package.tgz [ 501, 20 ]
+69 silly lockFile 3a52ce78- .
+70 silly lockFile 3a52ce78- .
+71 silly publish { name: 'ssn',
+71 silly publish   version: '0.5.1',
+71 silly publish   description: 'Validate and generate fake SSN',
+71 silly publish   main: 'index.js',
+71 silly publish   scripts: { test: 'make test' },
+71 silly publish   repository:
+71 silly publish    { type: 'git',
+71 silly publish      url: 'https://github.com/winfinit/fake-ssn-node.git' },
+71 silly publish   keywords: [ 'ssn', 'validate', 'SSN', 'fake', 'SSN' ],
+71 silly publish   author: { name: 'Roman Jurkov', email: 'winfinit@gmail.com' },
+71 silly publish   license: 'GNU General Public License',
+71 silly publish   bugs: { url: 'https://github.com/winfinit/fake-ssn-node/issues' },
+71 silly publish   dependencies: { sprintf: '>= 0.1.4' },
+71 silly publish   homepage: 'https://github.com/winfinit/fake-ssn-node',
+71 silly publish   devDependencies: { mocha: '^1.21.4', chai: '^1.9.1' },
+71 silly publish   readme: '# fake-ssn-node\n\nThis is a clone of [**fng-ssn-tools**](https://github.com/corbanworks/fng-ssn-tools) just in node.js\n\nA small library providing one an ability to validate a social security number, \nfind a state where SSN was issued, and generate a fake social security numbers\nfor testing your application.\n\n## Installation\n\n```bash\n  npm install ssn -g\n```\n\n## Usage\n\n```javascript\n  // Generate SSN from random state\n  var ssn = require(\'ssn\');\n  console.log(ssn.generate());\n\n  // Generate SSN from state of FL\n  console.log(ssn.generate(\'FL\'));\n\n  // Validate social security\n  if ( ssn.validate(\'420-19-4933\') ) {\n        console.log(\'valid\');\n  } else {\n        console.log(\'invalid\');\n  }\n\n  // Get a state where SSN was issued\n  var state = ssn.validate(\'420-19-4933\');\n  console.log(\'420-19-4933 was issued in\', state);\n```\n\n## Tests\n\n```bash\n  npm test\n```\n\n## Contributing\n\nIf you find a bug or willing to add some enhancement, pull requests are very welcome\n\n## Release History\n\n* 0.0,1 Initial release\n* 0.0.2 Bug fixes\n* 0.0.3 Bug fixes\n* 0.0.4 Added validation\n* 0.5.0 Added tests and documentation\n* 0.5.1 Corrected type in the doc\n\n## Legal\n\nThis program is free software; you can redistribute it and/or\nmodify it under the terms of the GNU General Public License\nas published by the Free Software Foundation; either version 2\nof the License, or (at your option) any later version.\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License\nalong with this program; if not, write to the Free Software\nFoundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.\n',
+71 silly publish   readmeFilename: 'README.md',
+71 silly publish   _id: 'ssn@0.5.1',
+71 silly publish   dist: { shasum: '211619c6d5827f88e1b3ccc0781c72381f596f65' },
+71 silly publish   _from: '.' }
+72 verbose url raw ssn
+73 verbose url resolving [ 'https://registry.npmjs.org/', './ssn' ]
+74 verbose url resolved https://registry.npmjs.org/ssn
+75 info trying registry request attempt 1 at 19:09:25
+76 http PUT https://registry.npmjs.org/ssn
+77 http 403 https://registry.npmjs.org/ssn
+78 error publish Failed PUT 403
+79 error Error: forbidden cannot modify pre-existing version: 0.5.1
+79 error old={"name":"ssn","version":"0.5.1","description":"Validate and generate fake SSN","main":"index.js","scripts":{"test":"make test"},"repository":{"type":"git","url":"https://github.com/winfinit/fake-ssn-node.git"},"keywords":["ssn","validate","SSN","fake","SSN"],"author":{"name":"Roman Jurkov","email":"winfinit@gmail.com"},"license":"GNU General Public License","bugs":{"url":"https://github.com/winfinit/fake-ssn-node/issues"},"dependencies":{"sprintf":">= 0.1.4"},"homepage":"https://github.com/winfinit/fake-ssn-node","devDependencies":{"mocha":"^1.21.4","chai":"^1.9.1"},"_id":"ssn@0.5.1","dist":{"shasum":"2c4529e36cc5ace3ae81a86cfcc60a5b7e5ede53","tarball":"http://registry.npmjs.org/ssn/-/ssn-0.5.1.tgz"},"_from":".","_npmVersion":"1.4.3","_npmUser":{"name":"winfinit","email":"winfinit@gmail.com"},"maintainers":[{"name":"winfinit","email":"winfinit@gmail.com"}]}
+79 error new={"name":"ssn","version":"0.5.1","description":"Validate and generate fake SSN","main":"index.js","scripts":{"test":"make test"},"repository":{"type":"git","url":"https://github.com/winfinit/fake-ssn-node.git"},"keywords":["ssn","validate","SSN","fake","SSN"],"author":{"name":"Roman Jurkov","email":"winfinit@gmail.com"},"license":"GNU General Public License","bugs":{"url":"https://github.com/winfinit/fake-ssn-node/issues"},"dependencies":{"sprintf":">= 0.1.4"},"homepage":"https://github.com/winfinit/fake-ssn-node","devDependencies":{"mocha":"^1.21.4","chai":"^1.9.1"},"readme":"# fake-ssn-node\u000a\u000aThis is a clone of [**fng-ssn-tools**](https://github.com/corbanworks/fng-ssn-tools) just in node.js\u000a\u000aA small library providing one an ability to validate a social security number, \u000afind a state where SSN was issued, and generate a fake social security numbers\u000afor testing your application.\u000a\u000a## Installation\u000a\u000a```bash\u000a  npm install ssn -g\u000a```\u000a\u000a## Usage\u000a\u000a```javascript\u000a  // Generate SSN from random state\u000a  var ssn = require('ssn');\u000a  console.log(ssn.generate());\u000a\u000a  // Generate SSN from state of FL\u000a  console.log(ssn.generate('FL'));\u000a\u000a  // Validate social security\u000a  if ( ssn.validate('420-19-4933') ) {\u000a        console.log('valid');\u000a  } else {\u000a        console.log('invalid');\u000a  }\u000a\u000a  // Get a state where SSN was issued\u000a  var state = ssn.validate('420-19-4933');\u000a  console.log('420-19-4933 was issued in', state);\u000a```\u000a\u000a## Tests\u000a\u000a```bash\u000a  npm test\u000a```\u000a\u000a## Contributing\u000a\u000aIf you find a bug or willing to add some enhancement, pull requests are very welcome\u000a\u000a## Release History\u000a\u000a* 0.0,1 Initial release\u000a* 0.0.2 Bug fixes\u000a* 0.0.3 Bug fixes\u000a* 0.0.4 Added validation\u000a* 0.5.0 Added tests and documentation\u000a* 0.5.1 Corrected type in the doc\u000a\u000a## Legal\u000a\u000aThis program is free software; you can redistribute it and/or\u000amodify it under the terms of the GNU General Public License\u000aas published by the Free Software Foundation; either version 2\u000aof the License, or (at your option) any later version.\u000a\u000aThis program is distributed in the hope that it will be useful,\u000abut WITHOUT ANY WARRANTY; without even the implied warranty of\u000aMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\u000aGNU General Public License for more details.\u000a\u000aYou should have received a copy of the GNU General Public License\u000aalong with this program; if not, write to the Free Software\u000aFoundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.\u000a","readmeFilename":"README.md","_id":"ssn@0.5.1","dist":{"shasum":"211619c6d5827f88e1b3ccc0781c72381f596f65","tarball":"http://registry.npmjs.org/ssn/-/ssn-0.5.1.tgz"},"_from":".","_npmVersion":"1.4.3","_npmUser":{"name":"winfinit","email":"winfinit@gmail.com"},"maintainers":[{"name":"winfinit","email":"winfinit@gmail.com"}]}: ssn
+79 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:237:14)
+79 error     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:123:22)
+79 error     at Request.EventEmitter.emit (events.js:98:17)
+79 error     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:893:14)
+79 error     at Request.EventEmitter.emit (events.js:117:20)
+79 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:844:12)
+79 error     at IncomingMessage.EventEmitter.emit (events.js:117:20)
+79 error     at _stream_readable.js:920:16
+79 error     at process._tickCallback (node.js:415:13)
+80 error If you need help, you may report this *entire* log,
+80 error including the npm and node versions, at:
+80 error     <http://github.com/npm/npm/issues>
+81 error System Darwin 13.4.0
+82 error command "node" "/usr/local/bin/npm" "publish"
+83 error cwd /Users/winfinit/Documents/workspace/fake-ssn-node
+84 error node -v v0.10.26
+85 error npm -v 1.4.3
+86 verbose exit [ 1, true ]

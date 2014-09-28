@@ -52,6 +52,7 @@ If you find a bug or willing to add some enhancement, pull requests are very wel
 * 0.0.4 Added validation
 * 0.5.0 Added tests and documentation
 * 0.5.1 Corrected type in the doc
+* 0.5.2 Updated markdown
 
 ## Legal
 
