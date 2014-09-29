@@ -211,7 +211,7 @@ for (var index in highgroup) {
 highgroup = cleangroup;
 
 exports.generate = function (state) {
-        state = state || this.states[Math.floor(Math.random() * (states.length - 1))];
+        state = state || this.states[Math.floor(Math.random() * (this.states.length - 1))];
         state = state.toUpperCase().trim();;
         if ( this.states.indexOf(state) === undefined ) {
                 throw "Invalid state " + state;
