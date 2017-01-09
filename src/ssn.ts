@@ -1,0 +1,5 @@
+class ssn {
+
+}
+
+export ssn;
