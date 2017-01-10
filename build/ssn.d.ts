@@ -1,26 +1,59 @@
-export declare class SSNGenerator {
-    private state;
+export declare class RandomSSN {
+    private _state;
+    private _ssn;
     constructor(state?: string);
-    create(): SSN;
+    value(): SSN;
 }
 export declare class SSN {
-    ssn: string;
-    constructor(ssn: string);
+    private _ssn;
+    private _state;
+    private _areaNumber;
+    private _groupNumber;
+    private _serialNumber;
+    constructor(state: SSNState, ssn: string);
     toFormattedString(): string;
     toString(): string;
-    areaNumbers(): string;
-    groupNumbers(): string;
-    lastFourNumbers(): string;
+    areaNumber(): AreaNumber;
+    groupNumber(): GroupNumber;
+    serialNumber(): SerialNumber;
     state(): SSNState;
 }
 export declare class SSNState {
-    state: string;
+    private _state;
+    private _states;
     constructor(state: string);
+    toString(): string;
+    areaNumbers(): Array<number>;
+    hasAreaNumber(areaNumber: number): boolean;
 }
-export declare class SSNValidator {
-    private ssn;
-    private state;
-    constructor(state: SSNState, ssn: SSN);
-    isValid(): boolean;
-    isValidLenth(): boolean;
+export declare class AreaNumber {
+    private _state;
+    private _areaNumber;
+    constructor(state: SSNState, areaNumber: number);
+    state(): SSNState;
+    value(): number;
+    toString(): string;
+}
+export declare class GroupNumber {
+    private _groupNumber;
+    constructor(groupNumber: number);
+    value(): number;
+    toString(): string;
+}
+export declare class SerialNumber {
+    private _serialNumber;
+    constructor(serialNumber: number);
+    value(): number;
+    toString(): string;
+}
+export declare class AreaNumberToState {
+    private _state;
+    constructor(areaNumber: number);
+    private findState(areaNumber);
+    state(): SSNState;
+}
+export declare class ParseSSN {
+    private _ssn;
+    constructor(ssn: string);
+    ssn(): SSN;
 }

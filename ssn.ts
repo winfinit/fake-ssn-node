@@ -1,92 +1,215 @@
- export class SSNGenerator {
- 	private state: string;
+ export class RandomSSN {
+ 	private _state: SSNState;
+ 	private _ssn: SSN;
 
- 	constructor(state = states[Math.floor(Math.random()*states.length)]) {
+ 	constructor(state = states[Math.floor(Math.random()*(states.length-1))] ) {
  		console.log('generate ssn');
- 		this.state = state.toUpperCase().trim();
+ 		this._state = new SSNState(state);
+ 		// select random area from state prefix
+ 		let amountOfAreaNumbers: number = this._state.areaNumbers().length;
+ 		let randomAreaNumberIndex: number = Math.floor(Math.random() * amountOfAreaNumbers);
+ 		let areaNumber: AreaNumber = new AreaNumber(this._state, this._state.areaNumbers()[randomAreaNumberIndex]);
+
+ 		// get Highgroup
+ 		let highGroupNumber = highgroup[areaNumber.value()];
+ 		let possibleGroup = possibleGroups.indexOf(highGroupNumber);
+ 		// select random entry from group
+ 		let randomGroupNumberIndex: number = Math.floor(Math.random() * possibleGroup);
+ 		let groupNumber: GroupNumber = new GroupNumber(possibleGroups[randomGroupNumberIndex]);
+
+ 		// random serial number
+ 		let randomSerialNumber: number = Math.floor(Math.random() * 9999);
+ 		let serialNumber: SerialNumber = new SerialNumber(randomSerialNumber);
+
+ 		this._ssn = new SSN(this._state, `${areaNumber.toString()}${groupNumber.toString()}${serialNumber.toString()}`);
  	}
 
  	// this will generate ssn
- 	create(): SSN {
- 		
- 		let statePrefix: Array<number> = statePrefixes[this.state];
-
- 		// select random area from state prefix
- 		let area: number = statePrefix[Math.floor(Math.random() * statePrefix.length)];
- 		// select random entry from a group
- 		let group: number = possibleGroups[Math.floor(Math.random() * possibleGroups.indexOf(highgroup[area]))];
- 		// area - group - Random Last Four
- 		let randomLastFour: number = Math.floor(Math.random() * 9999);
- 		let ssn: SSN = new SSN(`${area}${group}${randomLastFour}`);
- 		return ssn;
+ 	value(): SSN {
+ 		return this._ssn;
  	}
  }
 
  export class SSN {
- 	ssn: string;
+ 	private _ssn: string;
+ 	private _state: SSNState;
+ 	private _areaNumber: AreaNumber;
+ 	private _groupNumber: GroupNumber;
+ 	private _serialNumber: SerialNumber;
  	
- 	constructor(ssn: string) {
- 		this.ssn = ssn;	
+ 	constructor(state: SSNState, ssn: string) {
+ 		this._ssn = ssn;	
+ 		this._state = state;
+
+ 		if ( ssn.length !== 9 ) {
+ 			throw new RangeError(`Invalid SSN Length, must be 9 digits "${ssn}"`);
+ 		}
+ 		this._areaNumber = new AreaNumber(state, parseInt(this._ssn.substr(0, 3)));
+ 		this._groupNumber = new GroupNumber(parseInt(this._ssn.substr(3,2)));
+ 		this._serialNumber = new SerialNumber(parseInt(this._ssn.substr(5)));
  	}	
 
  	toFormattedString(): string {
- 		return `${this.ssn.substr(0, 3)}-${this.ssn.substr(3, 2)}-${this.ssn.substr(5, 4)}`;
+ 		return `${this.areaNumber().toString()}-${this.groupNumber().toString()}-${this.serialNumber().toString()}`;
  	}
 
  	toString(): string {
- 		return this.ssn;
+ 		return this._ssn;
  	}
 
- 	areaNumbers(): string {
- 		return this.ssn.substr(0, 3);
+ 	areaNumber(): AreaNumber {
+ 		return this._areaNumber;
  	}
 
- 	groupNumbers(): string {
- 		return this.ssn.substr(3,2);
+ 	groupNumber(): GroupNumber {
+ 		return this._groupNumber;
  	}
 
- 	lastFourNumbers(): string {
- 		return this.ssn.substr(5);
+ 	serialNumber(): SerialNumber {
+ 		return this._serialNumber
  	}
 
  	state(): SSNState {
- 		
+ 		return this._state;
  	}
-
  }
 
  export class SSNState {
- 	state: string;
+ 	private _state: string;
+ 	private _states: Array<string> = states;
 
  	constructor(state: string) {
- 		this.state = state.toUpperCase().trim();
+ 		this._state = state.toUpperCase().trim();
+ 		let isValidState = this._states.some(validState => validState === state);
+ 		if ( isValidState === undefined ) {
+ 			throw RangeError(`Invalid State Prefix "${this._state}"`);
+ 		} 
  	}
 
+ 	toString(): string {
+ 		return this._state;
+ 	}
 
+ 	areaNumbers(): Array<number> {
+ 		return statePrefixes[this.toString()]
+ 	}
+
+ 	hasAreaNumber(areaNumber: number): boolean {
+ 		return this.areaNumbers().some(statesAreaNumber => statesAreaNumber === areaNumber);
+ 	}
  }
 
- export class SSNValidator {
- 	private ssn: SSN;
- 	private state: SSNState;
 
-	constructor(state: SSNState, ssn: SSN) {
- 		console.log('generate ssn');
- 		this.state = state;
- 		this.ssn = ssn;
+
+ export class AreaNumber {
+ 	private _state: SSNState;
+ 	private _areaNumber: number;
+
+ 	constructor(state: SSNState, areaNumber: number) {
+
+ 		if (! state.hasAreaNumber(areaNumber) ) {
+ 			throw new RangeError(`Invalid Area Number "${areaNumber}" for state "${state.toString()}"`);
+ 		}
+ 		
+ 		this._state = state;
+ 		this._areaNumber = areaNumber;
  	}
 
- 	isValid(): boolean {
-
- 		// check if area is OK
- 		return true;
+ 	state(): SSNState {
+ 		return this._state;
  	}
 
- 	isValidLenth(): boolean {
- 		return ssn.length === 9;
+ 	value(): number {
+ 		return this._areaNumber;
  	}
 
+ 	toString(): string {
+ 		return padStringWithZeros(3, this._areaNumber.toString());
+ 	}
+ }
 
+ export class GroupNumber {
+ 	private _groupNumber: number;
 
+ 	constructor(groupNumber: number) {
+ 		this._groupNumber = groupNumber;
+ 	}
+
+ 	value(): number {
+ 		return this._groupNumber;
+
+ 	}
+
+ 	toString(): string {
+ 		return padStringWithZeros(2, this._groupNumber.toString());
+ 	}
+ }
+
+ export class SerialNumber {
+ 	private _serialNumber: number;
+
+ 	constructor(serialNumber: number) {
+ 		this._serialNumber = serialNumber;
+ 	}
+
+ 	value(): number {
+ 		return this._serialNumber;
+ 	}
+
+ 	toString(): string {
+ 		return padStringWithZeros(4, this._serialNumber.toString());
+ 	}
+ }
+
+ export class AreaNumberToState {
+ 	private _state: SSNState;
+
+ 	constructor(areaNumber: number) { 	
+ 		this._state = this.findState(areaNumber);
+ 	}
+
+ 	private findState(areaNumber: number): SSNState {
+ 		let detectedState: SSNState;
+ 		for ( let state in statePrefixes ) {
+ 			let ssnState: SSNState = new SSNState(state);
+ 			if ( ssnState.hasAreaNumber(areaNumber) ) {
+ 				detectedState = ssnState;
+ 			}
+ 		}
+
+ 		if (! detectedState ) {
+ 			throw new RangeError(`${areaNumber} area number is not valid`);
+ 		}
+
+ 		return detectedState;
+ 	}
+
+ 	state(): SSNState {
+ 		return this._state;
+ 	}
+ }
+
+ export class ParseSSN {
+ 	private _ssn: SSN;
+
+ 	constructor(ssn: string) {
+ 		let areaNumberString: string = ssn.substr(0,3);
+ 		let areaNumberInt: number = parseInt(areaNumberString);
+ 		let areaNumberToState: AreaNumberToState = new AreaNumberToState(areaNumberInt);
+ 		let ssnState: SSNState = areaNumberToState.state();
+ 		this._ssn = new SSN(ssnState, ssn);
+ 	}
+
+ 	ssn(): SSN {
+ 		return this._ssn;
+ 	}
+ }
+
+ function padStringWithZeros(length: number, stringToPad: string): string {
+ 	let padding: string = (new Array(length+1)).join("0");
+ 	let tempPaddedString: string = `${padding}${stringToPad}`;
+ 	let paddedString: string = tempPaddedString.substr(tempPaddedString.length - length);
+ 	return paddedString;
  }
 
  const states: Array<string> = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'];

@@ -1,72 +1,173 @@
 "use strict";
-var SSNGenerator = (function () {
-    function SSNGenerator(state) {
-        if (state === void 0) { state = states[Math.floor(Math.random() * states.length)]; }
+var RandomSSN = (function () {
+    function RandomSSN(state) {
+        if (state === void 0) { state = states[Math.floor(Math.random() * (states.length - 1))]; }
         console.log('generate ssn');
-        this.state = state.toUpperCase().trim();
+        this._state = new SSNState(state);
+        // select random area from state prefix
+        var amountOfAreaNumbers = this._state.areaNumbers().length;
+        var randomAreaNumberIndex = Math.floor(Math.random() * amountOfAreaNumbers);
+        var areaNumber = new AreaNumber(this._state, this._state.areaNumbers()[randomAreaNumberIndex]);
+        // get Highgroup
+        var highGroupNumber = highgroup[areaNumber.value()];
+        var possibleGroup = possibleGroups.indexOf(highGroupNumber);
+        // select random entry from group
+        var randomGroupNumberIndex = Math.floor(Math.random() * possibleGroup);
+        var groupNumber = new GroupNumber(possibleGroups[randomGroupNumberIndex]);
+        // random serial number
+        var randomSerialNumber = Math.floor(Math.random() * 9999);
+        var serialNumber = new SerialNumber(randomSerialNumber);
+        this._ssn = new SSN(this._state, "" + areaNumber.toString() + groupNumber.toString() + serialNumber.toString());
     }
     // this will generate ssn
-    SSNGenerator.prototype.create = function () {
-        var statePrefix = statePrefixes[this.state];
-        // select random area from state prefix
-        var area = statePrefix[Math.floor(Math.random() * statePrefix.length)];
-        // select random entry from a group
-        var group = possibleGroups[Math.floor(Math.random() * possibleGroups.indexOf(highgroup[area]))];
-        // area - group - Random Last Four
-        var randomLastFour = Math.floor(Math.random() * 9999);
-        var ssn = new SSN("" + area + group + randomLastFour);
-        return ssn;
+    RandomSSN.prototype.value = function () {
+        return this._ssn;
     };
-    return SSNGenerator;
+    return RandomSSN;
 }());
-exports.SSNGenerator = SSNGenerator;
+exports.RandomSSN = RandomSSN;
 var SSN = (function () {
-    function SSN(ssn) {
-        this.ssn = ssn;
+    function SSN(state, ssn) {
+        this._ssn = ssn;
+        this._state = state;
+        if (ssn.length !== 9) {
+            throw new RangeError("Invalid SSN Length, must be 9 digits \"" + ssn + "\"");
+        }
+        this._areaNumber = new AreaNumber(state, parseInt(this._ssn.substr(0, 3)));
+        this._groupNumber = new GroupNumber(parseInt(this._ssn.substr(3, 2)));
+        this._serialNumber = new SerialNumber(parseInt(this._ssn.substr(5)));
     }
     SSN.prototype.toFormattedString = function () {
-        return this.ssn.substr(0, 3) + "-" + this.ssn.substr(3, 2) + "-" + this.ssn.substr(5, 4);
+        return this.areaNumber().toString() + "-" + this.groupNumber().toString() + "-" + this.serialNumber().toString();
     };
     SSN.prototype.toString = function () {
-        return this.ssn;
+        return this._ssn;
     };
-    SSN.prototype.areaNumbers = function () {
-        return this.ssn.substr(0, 3);
+    SSN.prototype.areaNumber = function () {
+        return this._areaNumber;
     };
-    SSN.prototype.groupNumbers = function () {
-        return this.ssn.substr(3, 2);
+    SSN.prototype.groupNumber = function () {
+        return this._groupNumber;
     };
-    SSN.prototype.lastFourNumbers = function () {
-        return this.ssn.substr(5);
+    SSN.prototype.serialNumber = function () {
+        return this._serialNumber;
     };
     SSN.prototype.state = function () {
+        return this._state;
     };
     return SSN;
 }());
 exports.SSN = SSN;
 var SSNState = (function () {
     function SSNState(state) {
-        this.state = state.toUpperCase().trim();
+        this._states = states;
+        this._state = state.toUpperCase().trim();
+        var isValidState = this._states.some(function (validState) { return validState === state; });
+        if (isValidState === undefined) {
+            throw RangeError("Invalid State Prefix \"" + this._state + "\"");
+        }
     }
+    SSNState.prototype.toString = function () {
+        return this._state;
+    };
+    SSNState.prototype.areaNumbers = function () {
+        return statePrefixes[this.toString()];
+    };
+    SSNState.prototype.hasAreaNumber = function (areaNumber) {
+        return this.areaNumbers().some(function (statesAreaNumber) { return statesAreaNumber === areaNumber; });
+    };
     return SSNState;
 }());
 exports.SSNState = SSNState;
-var SSNValidator = (function () {
-    function SSNValidator(state, ssn) {
-        console.log('generate ssn');
-        this.state = state;
-        this.ssn = ssn;
+var AreaNumber = (function () {
+    function AreaNumber(state, areaNumber) {
+        if (!state.hasAreaNumber(areaNumber)) {
+            throw new RangeError("Invalid Area Number \"" + areaNumber + "\" for state \"" + state.toString() + "\"");
+        }
+        this._state = state;
+        this._areaNumber = areaNumber;
     }
-    SSNValidator.prototype.isValid = function () {
-        // check if area is OK
-        return true;
+    AreaNumber.prototype.state = function () {
+        return this._state;
     };
-    SSNValidator.prototype.isValidLenth = function () {
-        return ssn.length === 9;
+    AreaNumber.prototype.value = function () {
+        return this._areaNumber;
     };
-    return SSNValidator;
+    AreaNumber.prototype.toString = function () {
+        return padStringWithZeros(3, this._areaNumber.toString());
+    };
+    return AreaNumber;
 }());
-exports.SSNValidator = SSNValidator;
+exports.AreaNumber = AreaNumber;
+var GroupNumber = (function () {
+    function GroupNumber(groupNumber) {
+        this._groupNumber = groupNumber;
+    }
+    GroupNumber.prototype.value = function () {
+        return this._groupNumber;
+    };
+    GroupNumber.prototype.toString = function () {
+        return padStringWithZeros(2, this._groupNumber.toString());
+    };
+    return GroupNumber;
+}());
+exports.GroupNumber = GroupNumber;
+var SerialNumber = (function () {
+    function SerialNumber(serialNumber) {
+        this._serialNumber = serialNumber;
+    }
+    SerialNumber.prototype.value = function () {
+        return this._serialNumber;
+    };
+    SerialNumber.prototype.toString = function () {
+        return padStringWithZeros(4, this._serialNumber.toString());
+    };
+    return SerialNumber;
+}());
+exports.SerialNumber = SerialNumber;
+var AreaNumberToState = (function () {
+    function AreaNumberToState(areaNumber) {
+        this._state = this.findState(areaNumber);
+    }
+    AreaNumberToState.prototype.findState = function (areaNumber) {
+        var detectedState;
+        for (var state in statePrefixes) {
+            var ssnState = new SSNState(state);
+            if (ssnState.hasAreaNumber(areaNumber)) {
+                detectedState = ssnState;
+            }
+        }
+        if (!detectedState) {
+            throw new RangeError(areaNumber + " area number is not valid");
+        }
+        return detectedState;
+    };
+    AreaNumberToState.prototype.state = function () {
+        return this._state;
+    };
+    return AreaNumberToState;
+}());
+exports.AreaNumberToState = AreaNumberToState;
+var ParseSSN = (function () {
+    function ParseSSN(ssn) {
+        var areaNumberString = ssn.substr(0, 3);
+        var areaNumberInt = parseInt(areaNumberString);
+        var areaNumberToState = new AreaNumberToState(areaNumberInt);
+        var ssnState = areaNumberToState.state();
+        this._ssn = new SSN(ssnState, ssn);
+    }
+    ParseSSN.prototype.ssn = function () {
+        return this._ssn;
+    };
+    return ParseSSN;
+}());
+exports.ParseSSN = ParseSSN;
+function padStringWithZeros(length, stringToPad) {
+    var padding = (new Array(length + 1)).join("0");
+    var tempPaddedString = "" + padding + stringToPad;
+    var paddedString = tempPaddedString.substr(tempPaddedString.length - length);
+    return paddedString;
+}
 var states = ['AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY'];
 // The SSA uses a funky method of figuring out what group number to use next. This area has them in the proper order and makes it easier to generate a SSN.
 var possibleGroups = [1, 3, 5, 7, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 2, 4, 6, 8, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81, 83, 85, 87, 89, 91, 93, 95, 97, 99];
