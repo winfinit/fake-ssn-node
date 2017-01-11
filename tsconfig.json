@@ -9,12 +9,12 @@
         "declaration": true,
         "sourceMap": true,
         "noLib": false,
-        "outDir": "./build",
+        "outDir": "./built",
 		"types" : ["node"],
         "typeRoots": [ "node_modules/@types" ]
     },
     "include": [
-        "ssn.ts"
+        "src/**/*"
     ],
     "exclude": [
         "node_modules",

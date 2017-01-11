@@ -2,9 +2,12 @@
   "name": "ssn",
   "version": "1.0.0",
   "description": "Validate and generate fake SSN",
-  "main": "index.js",
+  "main": "built/index.js",
+  "files": [
+    "built/"
+  ],
   "scripts": {
-    "test": "make test"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -27,7 +30,7 @@
   },
   "homepage": "https://github.com/winfinit/fake-ssn-node",
   "devDependencies": {
-    "mocha": "^1.21.4",
-    "chai": "^1.9.1"
+    "mocha": "^3.2.0",
+    "chai": "^3.5.0"
   }
 }

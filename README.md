@@ -12,26 +12,17 @@ for testing your application.
   npm install ssn -g
 ```
 
-## Usage
+## Synopsis
 
 ```javascript
-  // Generate SSN from random state
-  var ssn = require('ssn');
-  console.log(ssn.generate());
+let {ParseSSN, RandomSSN} = require('ssn');
+let randomSSN = new RandomSSN();
+console.log("SSN string:", randomSSN.value().toString()); //023121234
+console.log("SSN formatted string", randomSSN.value().toFormattedString()); //023-12-1234
+console.log("SSN state", randomSSN.value().state().toString()); // FL
 
-  // Generate SSN from state of FL
-  console.log(ssn.generate('FL'));
-
-  // Validate social security
-  if ( ssn.validate('420-19-4933') ) {
-        console.log('valid');
-  } else {
-        console.log('invalid');
-  }
-
-  // Get a state where SSN was issued
-  var state = ssn.validate('420-19-4933');
-  console.log('420-19-4933 was issued in', state);
+let parseSSN = new ParseSSN('516386083');
+console.log("SSN state", parseSSN.ssn().state().toString());
 ```
 
 ## Tests
@@ -39,6 +30,58 @@ for testing your application.
 ```bash
   npm test
 ```
+
+## API
+
+### RandomSSN(stateANSI?: string)
+Class generates random social security number, optionally accepts state ANSI string (Ex. FL, NY, etc.).
+
+```javascript
+  let randomSSN = new RandomSSN();
+  let randomSSNFromState = new RandomSSN('FL');
+
+  let ssnString = randomSSN.value().toString();
+  let stateANSIString = randomSSN.value().state().toString();
+```
+
+#### value(): SSN
+Method returning generated SSN object
+
+----
+
+### ParseSSN(ssnString: string)
+Class parsing SSN string and performs validity of SSN, if SSN is invalid, RangeError exception is thrown.
+
+```javascript
+  let parseSSN = new ParseSSN('516386083');
+  let ssnString = parseSSN.value().toString();
+```
+
+#### value(): SSN
+Method returning generated SSN object
+
+----
+
+### SSN(state: SSNState, ssn: string)
+Class with helper methods to deal with SSN string
+
+#### toFormattedString(): string
+Returns formatted SSN string 'xxx-xx-xxxx'
+
+#### toString(): string
+Returns SSN in a string format 'xxxxxxxxx'
+
+#### state(): SSNState
+Returns SSNState object
+
+----
+
+### SSNState(state: string)
+Class helping to deal with states in relation to SSN
+
+#### toString(): string
+Return ANSI string for state
+
 
 ## Contributing
 
@@ -54,6 +97,7 @@ If you find a bug or willing to add some enhancement, pull requests are very wel
 * 0.5.1 Corrected type in the doc
 * 0.5.2 Updated markdown
 * 0.5.3 fixed bug with random states selection
+* 1.0.0 rewrite of a module in TS
 
 ## Legal
 
