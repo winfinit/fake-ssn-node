@@ -2,7 +2,6 @@
 var RandomSSN = (function () {
     function RandomSSN(state) {
         if (state === void 0) { state = states[Math.floor(Math.random() * (states.length - 1))]; }
-        console.log('generate ssn');
         this._state = new SSNState(state);
         // select random area from state prefix
         var amountOfAreaNumbers = this._state.areaNumbers().length;

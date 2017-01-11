@@ -1,6 +1,6 @@
 {
   "name": "ssn",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Validate and generate fake SSN",
   "main": "built/ssn.js",
   "files": [
