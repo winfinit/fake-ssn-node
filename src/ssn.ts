@@ -3,7 +3,6 @@
  	private _ssn: SSN;
 
  	constructor(state = states[Math.floor(Math.random()*(states.length-1))] ) {
- 		console.log('generate ssn');
  		this._state = new SSNState(state);
  		// select random area from state prefix
  		let amountOfAreaNumbers: number = this._state.areaNumbers().length;
